@@ -502,6 +502,7 @@ for name in ['build',
              'eval_env',
              'graph',
              'graphviz',
+             'hash_log',
              'lexer',
              'line_printer',
              'manifest_parser',
@@ -525,6 +526,7 @@ else:
     objs += cxx('subprocess-posix')
 if platform.is_aix():
     objs += cc('getopt')
+objs += cc('PMurHash')
 if platform.is_msvc():
     ninja_lib = n.build(built('ninja.lib'), 'ar', objs)
 else:
@@ -570,6 +572,7 @@ for name in ['build_log_test',
              'disk_interface_test',
              'edit_distance_test',
              'graph_test',
+             'hash_log_test',
              'lexer_test',
              'manifest_parser_test',
              'ninja_test',
